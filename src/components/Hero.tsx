@@ -54,27 +54,46 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Decorative geometric lines */}
-            <div className="absolute inset-0 border border-white/20 rounded-lg">
-              <div className="absolute -top-4 -right-4 w-full h-full border border-white/10 rounded-lg"></div>
-              <div className="absolute -top-8 -right-8 w-full h-full border border-white/5 rounded-lg"></div>
-            </div>
+            <div className="absolute inset-0 border border-white/20 rounded-lg transform rotate-3 scale-105 opacity-50"></div>
+            <div className="absolute inset-0 border border-violet-500/20 rounded-lg transform -rotate-3 scale-105 opacity-50"></div>
 
-            {/* Profile Image */}
-            <div className="relative bg-dark-surface border border-white/30 rounded-lg p-2 aspect-square flex items-center justify-center overflow-hidden">
+            {/* Profile Image Container with Float Animation */}
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative bg-dark-surface/80 backdrop-blur-sm border border-white/30 rounded-lg p-2 aspect-square flex items-center justify-center overflow-hidden shadow-2xl shadow-violet-500/20"
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/10 to-transparent pointer-events-none"></div>
               <img
                 src={profileImage}
                 alt="Profile"
                 className="w-full h-full object-cover rounded-lg"
               />
-            </div>
+            </motion.div>
 
             {/* Status indicator */}
-            <div className="absolute -bottom-4 left-4 bg-dark-surface border border-white/30 px-3 py-2">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-violet-500 rounded-full"></div>
-                <span className="text-xs text-white">{t.hero.status}</span>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+              className="absolute -bottom-6 -left-6 bg-dark-surface/90 backdrop-blur-md border border-white/20 px-4 py-3 rounded-lg shadow-xl"
+            >
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-violet-500"></span>
+                </span>
+                <span className="text-xs font-medium text-white">{t.hero.status}</span>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

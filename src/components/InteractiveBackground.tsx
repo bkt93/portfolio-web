@@ -14,7 +14,7 @@ const InteractiveBackground = ({ mousePosition }: InteractiveBackgroundProps) =>
       style={{ background: '#0a0a0f' }}
     >
       {/* Subtle grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
@@ -32,13 +32,14 @@ const InteractiveBackground = ({ mousePosition }: InteractiveBackgroundProps) =>
           width: '600px',
           height: '600px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.03) 0%, rgba(139, 92, 246, 0.01) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.03) 40%, transparent 70%)',
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
           filter: 'blur(60px)',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
           transition: 'none',
+          zIndex: -1,
         }}
       />
 
@@ -49,13 +50,15 @@ const InteractiveBackground = ({ mousePosition }: InteractiveBackgroundProps) =>
           width: '400px',
           height: '400px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(124, 58, 237, 0.02) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 60%)',
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
           filter: 'blur(80px)',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
           transition: 'none',
+          zIndex: -1,
+          mixBlendMode: 'screen',
         }}
       />
     </div>

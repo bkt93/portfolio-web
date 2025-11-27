@@ -14,11 +14,22 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-violet-400 via-violet-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-violet-400 via-fuchsia-500 to-purple-600 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradient 8s linear infinite;
   }
   
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-dark-card/60 backdrop-blur-md border border-white/5 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply border-violet-500/30 bg-dark-card/80 shadow-[0_0_30px_rgba(139,92,246,0.15)];
+    transform: translateY(-5px);
   }
   
   .glass-no-border {
@@ -48,6 +59,10 @@
   
   .glow {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
   }
 
   /* Smooth infinite scroll animation */
